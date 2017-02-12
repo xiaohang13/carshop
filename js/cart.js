@@ -48,6 +48,7 @@ new Vue( {
                 item.productQuentity++;
             }
         },
+        // 单选商品
         selectProduct: function ( item ) {
             console.log( item );
             if ( typeof item.checked == 'undefined' ) {
