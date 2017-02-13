@@ -2,7 +2,9 @@ new Vue( {
     el: "#app",
     data: {
         productList: [],
-        AllCheck: false
+        AllCheck: false,
+        showFlag: false,
+        curProduct: null
     },
     filters: {
         // 格式化金额
@@ -69,6 +71,18 @@ new Vue( {
                     product.checked = flag;
                 }
             })
+        },
+        // 刪除按鈕
+        delConfirm: function ( item ) {
+            this.showFlag = true;
+            this.curProduct = item;
+        },
+        // 刪除商品
+        delProduct: function () {
+            var index = this.productList.indexOf( this.curProduct );
+            // splice() 方法用于插入、删除或替换数组的元素
+            this.productList.splice( index, 1 );
+            this.showFlag = false;
         }
     }
 });
