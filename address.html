@@ -56,7 +56,7 @@
             <div class="addr-list-wrap">
                 <div class="addr-list">
                     <ul>
-                        <li v-for="(item,index) in addressList">
+                        <li v-for="(item,index) in filterAddressList">
                             <dl>
                                 <dt>{{item.userName}}</dt>
                                 <dd class="address">{{item.streetName}}</dd>
@@ -76,10 +76,10 @@
                                     </svg>
                                 </a>
                             </div>
-                            <div class="addr-opration addr-set-default">
+                            <div class="addr-opration addr-set-default" v-if="!item.isDefault">
                                 <a href="javascript:;" class="addr-set-default-btn"><i>设为默认</i></a>
                             </div>
-                            <div class="addr-opration addr-default">默认地址</div>
+                            <div class="addr-opration addr-default" v-if="item.isDefault">默认地址</div>
                         </li>
                         <li class="addr-new">
                             <div class="add-new-inner">
@@ -92,7 +92,7 @@
                     </ul>
                 </div>
                 <div class="shipping-addr-more">
-                    <a class="addr-more-btn up-down-btn" href="javascript:;">
+                    <a class="addr-more-btn up-down-btn" href="javascript:;" @click="moreAddress(showFlag)">
                         more
                         <i class="i-up-down">
                             <i class="i-up-down-l"></i>
