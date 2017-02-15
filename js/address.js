@@ -3,7 +3,8 @@ new Vue( {
     data: {
         addressList: [],
         showFlag: true,
-        limit: 3
+        limit: 3,
+        currentIndex: 0
     },
     mounted: function () {
         this.$nextTick( function () {
@@ -37,7 +38,6 @@ new Vue( {
                 this.showFlag = true;
                 this.limit = 3;
             }
-
         }
     }
 });
