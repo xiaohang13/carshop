@@ -4,7 +4,8 @@ new Vue( {
         addressList: [],
         showFlag: true,
         limit: 3,
-        currentIndex: 0
+        currentIndex: 0,
+        shippingmethod: 1
     },
     mounted: function () {
         this.$nextTick( function () {
@@ -38,6 +39,16 @@ new Vue( {
                 this.showFlag = true;
                 this.limit = 3;
             }
+        },
+        // 设置默认收货地址
+        setDefault: function ( addressId ) {
+            this.addressList.forEach(( value, index ) => {
+                if ( addressId == value.addressId ) {
+                    value.isDefault = true;
+                } else {
+                    value.isDefault = false;
+                }
+            })
         }
     }
 });

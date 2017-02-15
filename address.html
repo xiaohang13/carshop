@@ -77,7 +77,7 @@
                                 </a>
                             </div>
                             <div class="addr-opration addr-set-default" v-if="!item.isDefault">
-                                <a href="javascript:;" class="addr-set-default-btn"><i>设为默认</i></a>
+                                <a href="javascript:;" class="addr-set-default-btn" @click="setDefault(item.addressId)"><i>设为默认</i></a>
                             </div>
                             <div class="addr-opration addr-default" v-if="item.isDefault">默认地址</div>
                         </li>
@@ -108,11 +108,11 @@
             <div class="shipping-method-wrap">
                 <div class="shipping-method">
                     <ul>
-                        <li>
+                        <li v-bind:class="{'check':shippingmethod==1}" @click="shippingmethod=1">
                             <div class="name">标准配送</div>
                             <div class="price">Free</div>
                         </li>
-                        <li>
+                        <li v-bind:class="{'check':shippingmethod==2}" @click="shippingmethod=2">
                             <div class="name">高级配送</div>
                             <div class="price">180</div>
                         </li>
